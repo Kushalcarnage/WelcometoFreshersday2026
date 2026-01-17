@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCUSMS Freshers Day 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     
@@ -13,14 +13,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap */
         }
 
         body {
             background-color: #0f0f0f;
             color: white;
             overflow-x: hidden;
-            min-height: 100vh;
+            height: 100vh;
         }
 
         /* --- NAVIGATION / HOME PAGE --- */
@@ -32,7 +31,7 @@
             min-height: 100vh;
             text-align: center;
             background: linear-gradient(135deg, #2b5876, #4e4376);
-            padding: 20px 10px; /* Less side padding on mobile */
+            padding: 20px;
         }
 
         /* --- ANIMATED TITLE STYLES --- */
@@ -41,8 +40,7 @@
             font-size: 5rem;
             letter-spacing: 5px;
             cursor: default;
-            margin-bottom: 5px;
-            line-height: 1.1;
+            margin-bottom: 10px;
         }
 
         .interactive-title span {
@@ -50,33 +48,31 @@
             transition: transform 0.2s, color 0.2s;
         }
 
-        .interactive-title span:active,
         .interactive-title span:hover {
             transform: scale(1.4) rotate(-5deg);
             color: #ffeb3b;
             text-shadow: 0 0 15px rgba(255,255,255,0.8);
         }
         
-        .interactive-title span:nth-child(1):active { color: #ff5252; }
-        .interactive-title span:nth-child(2):active { color: #448aff; }
-        .interactive-title span:nth-child(3):active { color: #69f0ae; }
-        .interactive-title span:nth-child(4):active { color: #e040fb; }
-        .interactive-title span:nth-child(5):active { color: #ffab40; }
-        .interactive-title span:nth-child(6):active { color: #ff5252; }
+        .interactive-title span:nth-child(1):hover { color: #ff5252; }
+        .interactive-title span:nth-child(2):hover { color: #448aff; }
+        .interactive-title span:nth-child(3):hover { color: #69f0ae; }
+        .interactive-title span:nth-child(4):hover { color: #e040fb; }
+        .interactive-title span:nth-child(5):hover { color: #ffab40; }
+        .interactive-title span:nth-child(6):hover { color: #ff5252; }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
             margin-bottom: 5px;
             color: #ffffff;
             text-transform: uppercase;
-            max-width: 90%;
         }
 
         .venue-text {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #ddd;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: 300;
             background: rgba(0,0,0,0.3);
             padding: 5px 15px;
@@ -86,27 +82,20 @@
         .date-badge {
             background: #ffeb3b;
             color: #333;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 50px;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.2rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .instruction-text {
-            margin-bottom: 20px; 
-            font-size: 1.1rem;
-        }
-
-        /* --- RESPONSIVE GRID FOR BUTTONS --- */
         .category-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             max-width: 1200px;
-            width: 100%;
         }
 
         .card {
@@ -114,30 +103,30 @@
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .card:active, .card:hover {
-            transform: scale(0.95); /* Slight press effect on phone */
-            background: rgba(255, 255, 255, 0.25);
-            border-color: #ffeb3b;
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .card-icon {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            margin-bottom: 15px;
         }
 
         .card-title {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
         }
 
@@ -153,121 +142,99 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            
-            /* Ensures image scales correctly on phones */
+            padding: 40px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Parallax effect */
         }
 
-        /* LOCAL IMAGES */
-        #page-nerd { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('nerd.png'); }
-        #page-cool { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('cool.png'); }
-        #page-party { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('party.png'); }
-        #page-clown { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('clown.png'); }
-        #page-quiet { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('quiet.png'); }
+        /* LOCAL FILE SETTINGS FOR IMAGES */
+        #page-nerd {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('nerd.png');
+        }
+
+        #page-cool {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('cool.png');
+        }
+
+        #page-party {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('party.png');
+        }
+
+        #page-clown {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('clown.png');
+        }
+
+        #page-quiet {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('quiet.png');
+        }
 
         .quote-box {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px;
             border-radius: 15px;
             max-width: 900px;
-            width: 100%;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.2);
             animation: slideUp 0.8s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .quote-text {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin-bottom: 25px;
+            line-height: 1.6;
             font-weight: 300;
         }
 
         .welcome-msg {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #ffeb3b;
-            margin-top: 15px;
+            margin-top: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .back-btn {
-            margin-top: 30px;
-            padding: 12px 35px;
+            margin-top: 40px;
+            padding: 15px 40px;
             background: #ffeb3b;
             color: #333;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            /* Make button easily tappable */
-            min-width: 150px;
-            min-height: 44px;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            background: #fff;
         }
 
         @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
+            from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-       /* --- MOBILE SPECIFIC MEDIA QUERY --- */
-        @media (max-width: 768px) {
-            .interactive-title { 
-                font-size: 3.5rem; 
-                letter-spacing: 2px;
-            }
-            
-            h2 { 
-                font-size: 1.3rem; 
-                line-height: 1.4;
-            }
-
-            /* Make cards 2 per row on mobile */
-            .card {
-                width: 44%; 
-                height: 140px; 
-            }
-
-            .card-icon {
-                font-size: 3rem;
-            }
-
-            .card-title {
-                font-size: 1rem;
-            }
-
-            .quote-text {
-                font-size: 1.2rem;
-            }
-            
-            .welcome-msg {
-                font-size: 1.3rem;
-            }
-
-            /* --- THE FIX IS HERE --- */
-            .content-page {
-                background-attachment: scroll !important; /* Force mobile to scroll normally */
-                background-size: cover;
-                background-position: center center;
-            }
+        @media (max-width: 600px) {
+            .interactive-title { font-size: 3rem; }
+            h2 { font-size: 1.5rem; }
+            .quote-text { font-size: 1.2rem; }
+            .card { width: 140px; height: 140px; }
         }
     </style>
 </head>
 <body>
 
-    <audio id="audio-nerd" src="nerd.mp3" playsinline></audio>
-    <audio id="audio-cool" src="cool.mp3" playsinline></audio>
-    <audio id="audio-party" src="party.mp3" playsinline></audio>
-    <audio id="audio-clown" src="clown.mp3" playsinline></audio>
-    <audio id="audio-quiet" src="quiet.mp3" playsinline></audio>
+    <audio id="audio-nerd" src="nerd.mp3"></audio>
+    <audio id="audio-cool" src="cool.mp3"></audio>
+    <audio id="audio-party" src="party.mp3"></audio>
+    <audio id="audio-clown" src="clown.mp3"></audio>
+    <audio id="audio-quiet" src="quiet.mp3"></audio>
 
     <div id="home-page">
         <div class="interactive-title">
@@ -279,7 +246,7 @@
         
         <div class="date-badge">Freshers Day • 23-1-26</div>
         
-        <p class="instruction-text">Tap your vibe to enter:</p>
+        <p style="margin-bottom: 30px; font-size: 1.3rem;">Pick your vibe to enter the new beginning:</p>
 
         <div class="category-container">
             <div class="card" onclick="showPage('page-nerd', 'audio-nerd')">
@@ -376,8 +343,7 @@
             const audio = document.getElementById(audioId);
             if (audio) {
                 audio.currentTime = 0; // Start from beginning
-                // Mobile browsers require this to happen inside the 'onclick' event
-                audio.play().catch(e => console.log("Audio play failed (browser restricted):", e));
+                audio.play().catch(e => console.log("Audio play failed (user interaction needed):", e));
             }
         }
 
@@ -403,8 +369,5 @@
     </script>
 </body>
 </html>
-
-
-
 
 
