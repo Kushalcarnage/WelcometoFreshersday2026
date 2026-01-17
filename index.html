@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCUSMS Freshers Day 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    
     <style>
         /* --- GLOBAL STYLES --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Clean font for reading */
         }
 
         body {
@@ -28,76 +30,112 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* "New Beginning" Sunrise Theme */
+            background: linear-gradient(135deg, #2b5876, #4e4376); /* Deep Purple/Blue Theme */
             padding: 20px;
-            animation: fadeIn 1.5s ease;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* --- ANIMATED TITLE STYLES --- */
+        .interactive-title {
+            font-family: 'Fredoka One', cursive; /* Fun font */
+            font-size: 5rem; /* Much bigger */
+            letter-spacing: 5px;
+            cursor: default;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
+
+        .interactive-title span {
+            display: inline-block;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        /* Hover effects for title letters */
+        .interactive-title span:hover {
+            transform: scale(1.4) rotate(-5deg);
+            color: #ffeb3b; /* Yellow default hover */
+            text-shadow: 0 0 15px rgba(255,255,255,0.8);
+        }
+        
+        /* Assign different hover colors to specific letters using nth-child */
+        .interactive-title span:nth-child(1):hover { color: #ff5252; } /* Red */
+        .interactive-title span:nth-child(2):hover { color: #448aff; } /* Blue */
+        .interactive-title span:nth-child(3):hover { color: #69f0ae; } /* Green */
+        .interactive-title span:nth-child(4):hover { color: #e040fb; } /* Purple */
+        .interactive-title span:nth-child(5):hover { color: #ffab40; } /* Orange */
+        .interactive-title span:nth-child(6):hover { color: #ff5252; } /* Red */
+
 
         h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
+            font-size: 2rem;
+            font-weight: 600;
             margin-bottom: 5px;
-            color: #f0f0f0;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .venue-text {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 30px;
+            font-weight: 300;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 10px;
         }
 
         .date-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin-bottom: 40px;
+            background: #ffeb3b;
+            color: #333;
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 50px;
             font-weight: bold;
-            backdrop-filter: blur(5px);
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .category-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            max-width: 1000px;
+            gap: 25px;
+            max-width: 1200px;
         }
 
         .card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            width: 160px;
-            height: 160px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            width: 180px; /* Bigger cards */
+            height: 180px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .card-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 4rem; /* Bigger icons */
+            margin-bottom: 15px;
         }
 
         .card-title {
-            font-weight: bold;
-            font-size: 1rem;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         /* --- CONTENT PAGES --- */
         .content-page {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -108,91 +146,84 @@
             align-items: center;
             text-align: center;
             padding: 40px;
+            
+            /* Ensures the background image covers the whole screen */
             background-size: cover;
             background-position: center;
-            background-blend-mode: overlay;
+            background-repeat: no-repeat;
         }
 
-        /* --- BACKGROUND IMAGES --- 
-           Replace the url(...) below with your actual image links.
+        /* LOCAL FILE SETTINGS 
+           Ensure your image files are in the same folder as this HTML file.
         */
         #page-nerd {
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-            /* background-image: url('nerd-bg.jpg'); */
-            border-left: 10px solid #3498db; /* Blue Accent */
+            /* If image is missing, it falls back to black overlay */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('nerd.jpg');
         }
 
         #page-cool {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* background-image: url('cool-bg.jpg'); */
-            border-left: 10px solid #e74c3c; /* Red Accent */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('cool.jpg');
         }
 
         #page-party {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* background-image: url('party-bg.jpg'); */
-            border-left: 10px solid #f1c40f; /* Yellow Accent */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('party.jpg');
         }
 
         #page-clown {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* background-image: url('clown-bg.jpg'); */
-            border-left: 10px solid #9b59b6; /* Purple Accent */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('clown.jpg');
         }
 
         #page-quiet {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* background-image: url('quiet-bg.jpg'); */
-            border-left: 10px solid #2ecc71; /* Green Accent */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('quiet.jpg');
         }
 
         .quote-box {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 800px;
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(0, 0, 0, 0.75); /* Darker box for better reading */
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 900px;
+            border: 2px solid rgba(255,255,255,0.2);
             animation: slideUp 0.8s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .quote-text {
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Bigger text */
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.6;
+            font-weight: 300;
         }
 
         .welcome-msg {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #fff;
-            margin-top: 15px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: #ffeb3b; /* Pop color */
+            margin-top: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .back-btn {
-            margin-top: 30px;
-            padding: 10px 25px;
-            background: white;
-            color: black;
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: #ffeb3b;
+            color: #333;
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1.2rem;
             transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .back-btn:hover {
             transform: scale(1.1);
-            background: #ddd;
+            background: #fff;
         }
 
         /* --- ANIMATIONS --- */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
         @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -200,20 +231,26 @@
 
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .quote-text { font-size: 1.1rem; }
-            .card { width: 130px; height: 130px; }
+            .interactive-title { font-size: 3rem; }
+            h2 { font-size: 1.5rem; }
+            .quote-text { font-size: 1.2rem; }
+            .card { width: 140px; height: 140px; }
         }
     </style>
 </head>
 <body>
 
     <div id="home-page">
-        <h1>BCUSMS</h1>
+        <div class="interactive-title">
+            <span>B</span><span>C</span><span>U</span><span>S</span><span>M</span><span>S</span>
+        </div>
+        
         <h2>Department of Management Studies</h2>
+        <div class="venue-text">Venue: Department of Mathematics</div>
+        
         <div class="date-badge">Freshers Day • 23-1-26</div>
         
-        <p style="margin-bottom: 30px; font-size: 1.1rem;">Pick your vibe to enter the new beginning:</p>
+        <p style="margin-bottom: 30px; font-size: 1.3rem;">Pick your vibe to enter the new beginning:</p>
 
         <div class="category-container">
             <div class="card" onclick="showPage('page-nerd')">
@@ -246,7 +283,7 @@
     <div id="page-nerd" class="content-page">
         <div class="quote-box">
             <p class="quote-text">"Being a nerd is not about what you love; it's about the way you love it."</p>
-            <hr style="width: 50%; margin: 0 auto; opacity: 0.5;">
+            <hr style="width: 50%; margin: 0 auto; opacity: 0.3; border-color: white;">
             <p class="welcome-msg">We are welcoming you to Freshers Day!</p>
         </div>
         <button class="back-btn" onclick="showHome()">Back to Home</button>
@@ -255,7 +292,7 @@
     <div id="page-cool" class="content-page">
         <div class="quote-box">
             <p class="quote-text">"Being a student is not just about passing exams or scoring marks; it is about discovering who you are, what you love, and how far you are willing to go to build the future you dream of."</p>
-            <hr style="width: 50%; margin: 0 auto; opacity: 0.5;">
+            <hr style="width: 50%; margin: 0 auto; opacity: 0.3; border-color: white;">
             <p class="welcome-msg">We are welcoming you to Freshers Day!</p>
         </div>
         <button class="back-btn" onclick="showHome()">Back to Home</button>
@@ -264,7 +301,7 @@
     <div id="page-party" class="content-page">
         <div class="quote-box">
             <p class="quote-text">"Being a party animal isn’t about noise or chaos; it’s about freedom, laughter, and living moments that tomorrow will turn into stories."</p>
-            <hr style="width: 50%; margin: 0 auto; opacity: 0.5;">
+            <hr style="width: 50%; margin: 0 auto; opacity: 0.3; border-color: white;">
             <p class="welcome-msg">We are welcoming you to Freshers Day!</p>
         </div>
         <button class="back-btn" onclick="showHome()">Back to Home</button>
@@ -273,7 +310,7 @@
     <div id="page-clown" class="content-page">
         <div class="quote-box">
             <p class="quote-text">"People think the class clown is just someone who doesn’t take things seriously, but they don’t see the truth. Humor is my shield, laughter is my language, and jokes are how you connect with the world."</p>
-            <hr style="width: 50%; margin: 0 auto; opacity: 0.5;">
+            <hr style="width: 50%; margin: 0 auto; opacity: 0.3; border-color: white;">
             <p class="welcome-msg">We are welcoming you to Freshers Day!</p>
         </div>
         <button class="back-btn" onclick="showHome()">Back to Home</button>
@@ -282,39 +319,33 @@
     <div id="page-quiet" class="content-page">
         <div class="quote-box">
             <p class="quote-text">"The quiet ones notice everything—the tone of voices, the shift in moods, the things left unsaid. While others speak to be heard, you listen to understand."</p>
-            <hr style="width: 50%; margin: 0 auto; opacity: 0.5;">
+            <hr style="width: 50%; margin: 0 auto; opacity: 0.3; border-color: white;">
             <p class="welcome-msg">We are welcoming you to Freshers Day!</p>
         </div>
         <button class="back-btn" onclick="showHome()">Back to Home</button>
     </div>
 
     <script>
-        // Function to show a specific page and hide home
         function showPage(pageId) {
-            // Hide Home
             document.getElementById('home-page').style.display = 'none';
-            
-            // Show selected page
             const page = document.getElementById(pageId);
             page.style.display = 'flex';
             
-            // Reset animation
+            // Re-trigger animation
             const quoteBox = page.querySelector('.quote-box');
             quoteBox.style.animation = 'none';
-            quoteBox.offsetHeight; /* trigger reflow */
+            quoteBox.offsetHeight; 
             quoteBox.style.animation = 'slideUp 0.8s ease';
         }
 
-        // Function to return to home
         function showHome() {
-            // Hide all pages
             const pages = document.querySelectorAll('.content-page');
             pages.forEach(page => page.style.display = 'none');
-            
-            // Show home
             document.getElementById('home-page').style.display = 'flex';
         }
     </script>
 </body>
+</html>
 
 </html>
+
