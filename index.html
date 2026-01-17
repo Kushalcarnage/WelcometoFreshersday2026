@@ -218,7 +218,7 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* --- MOBILE SPECIFIC MEDIA QUERY --- */
+       /* --- MOBILE SPECIFIC MEDIA QUERY --- */
         @media (max-width: 768px) {
             .interactive-title { 
                 font-size: 3.5rem; 
@@ -232,7 +232,7 @@
 
             /* Make cards 2 per row on mobile */
             .card {
-                width: 44%; /* Allows 2 cards to fit with gap */
+                width: 44%; 
                 height: 140px; 
             }
 
@@ -244,13 +244,19 @@
                 font-size: 1rem;
             }
 
-            /* Adjust quote text for small screens */
             .quote-text {
                 font-size: 1.2rem;
             }
             
             .welcome-msg {
                 font-size: 1.3rem;
+            }
+
+            /* --- THE FIX IS HERE --- */
+            .content-page {
+                background-attachment: scroll !important; /* Force mobile to scroll normally */
+                background-size: cover;
+                background-position: center center;
             }
         }
     </style>
@@ -397,6 +403,7 @@
     </script>
 </body>
 </html>
+
 
 
 
