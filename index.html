@@ -12,7 +12,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif; /* Clean font for reading */
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -30,14 +30,14 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
-            background: linear-gradient(135deg, #2b5876, #4e4376); /* Deep Purple/Blue Theme */
+            background: linear-gradient(135deg, #2b5876, #4e4376);
             padding: 20px;
         }
 
         /* --- ANIMATED TITLE STYLES --- */
         .interactive-title {
-            font-family: 'Fredoka One', cursive; /* Fun font */
-            font-size: 5rem; /* Much bigger */
+            font-family: 'Fredoka One', cursive;
+            font-size: 5rem;
             letter-spacing: 5px;
             cursor: default;
             margin-bottom: 10px;
@@ -48,21 +48,18 @@
             transition: transform 0.2s, color 0.2s;
         }
 
-        /* Hover effects for title letters */
         .interactive-title span:hover {
             transform: scale(1.4) rotate(-5deg);
-            color: #ffeb3b; /* Yellow default hover */
+            color: #ffeb3b;
             text-shadow: 0 0 15px rgba(255,255,255,0.8);
         }
         
-        /* Assign different hover colors to specific letters using nth-child */
-        .interactive-title span:nth-child(1):hover { color: #ff5252; } /* Red */
-        .interactive-title span:nth-child(2):hover { color: #448aff; } /* Blue */
-        .interactive-title span:nth-child(3):hover { color: #69f0ae; } /* Green */
-        .interactive-title span:nth-child(4):hover { color: #e040fb; } /* Purple */
-        .interactive-title span:nth-child(5):hover { color: #ffab40; } /* Orange */
-        .interactive-title span:nth-child(6):hover { color: #ff5252; } /* Red */
-
+        .interactive-title span:nth-child(1):hover { color: #ff5252; }
+        .interactive-title span:nth-child(2):hover { color: #448aff; }
+        .interactive-title span:nth-child(3):hover { color: #69f0ae; }
+        .interactive-title span:nth-child(4):hover { color: #e040fb; }
+        .interactive-title span:nth-child(5):hover { color: #ffab40; }
+        .interactive-title span:nth-child(6):hover { color: #ff5252; }
 
         h2 {
             font-size: 2rem;
@@ -106,7 +103,7 @@
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            width: 180px; /* Bigger cards */
+            width: 180px;
             height: 180px;
             display: flex;
             flex-direction: column;
@@ -123,7 +120,7 @@
         }
 
         .card-icon {
-            font-size: 4rem; /* Bigger icons */
+            font-size: 4rem;
             margin-bottom: 15px;
         }
 
@@ -146,39 +143,34 @@
             align-items: center;
             text-align: center;
             padding: 40px;
-            
-            /* Ensures the background image covers the whole screen */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* LOCAL FILE SETTINGS 
-           Ensure your image files are in the same folder as this HTML file.
-        */
+        /* LOCAL FILE SETTINGS FOR IMAGES */
         #page-nerd {
-            /* If image is missing, it falls back to black overlay */
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('nerd.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('nerd.png');
         }
 
         #page-cool {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('cool.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('cool.png');
         }
 
         #page-party {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('party.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('party.png');
         }
 
         #page-clown {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('clown.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('clown.png');
         }
 
         #page-quiet {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('quiet.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('quiet.png');
         }
 
         .quote-box {
-            background: rgba(0, 0, 0, 0.75); /* Darker box for better reading */
+            background: rgba(0, 0, 0, 0.75);
             padding: 40px;
             border-radius: 15px;
             max-width: 900px;
@@ -188,7 +180,7 @@
         }
 
         .quote-text {
-            font-size: 1.8rem; /* Bigger text */
+            font-size: 1.8rem;
             font-style: italic;
             margin-bottom: 25px;
             line-height: 1.6;
@@ -198,7 +190,7 @@
         .welcome-msg {
             font-family: 'Fredoka One', cursive;
             font-size: 2rem;
-            color: #ffeb3b; /* Pop color */
+            color: #ffeb3b;
             margin-top: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -223,13 +215,11 @@
             background: #fff;
         }
 
-        /* --- ANIMATIONS --- */
         @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* --- MOBILE TWEAKS --- */
         @media (max-width: 600px) {
             .interactive-title { font-size: 3rem; }
             h2 { font-size: 1.5rem; }
@@ -239,6 +229,12 @@
     </style>
 </head>
 <body>
+
+    <audio id="audio-nerd" src="nerd.mp3"></audio>
+    <audio id="audio-cool" src="cool.mp3"></audio>
+    <audio id="audio-party" src="party.mp3"></audio>
+    <audio id="audio-clown" src="clown.mp3"></audio>
+    <audio id="audio-quiet" src="quiet.mp3"></audio>
 
     <div id="home-page">
         <div class="interactive-title">
@@ -253,27 +249,27 @@
         <p style="margin-bottom: 30px; font-size: 1.3rem;">Pick your vibe to enter the new beginning:</p>
 
         <div class="category-container">
-            <div class="card" onclick="showPage('page-nerd')">
+            <div class="card" onclick="showPage('page-nerd', 'audio-nerd')">
                 <div class="card-icon">🤓</div>
                 <div class="card-title">Nerd</div>
             </div>
             
-            <div class="card" onclick="showPage('page-cool')">
+            <div class="card" onclick="showPage('page-cool', 'audio-cool')">
                 <div class="card-icon">😎</div>
                 <div class="card-title">Cool</div>
             </div>
 
-            <div class="card" onclick="showPage('page-party')">
+            <div class="card" onclick="showPage('page-party', 'audio-party')">
                 <div class="card-icon">🥳</div>
                 <div class="card-title">Party Animal</div>
             </div>
 
-            <div class="card" onclick="showPage('page-clown')">
+            <div class="card" onclick="showPage('page-clown', 'audio-clown')">
                 <div class="card-icon">🤡</div>
                 <div class="card-title">Class Clown</div>
             </div>
 
-            <div class="card" onclick="showPage('page-quiet')">
+            <div class="card" onclick="showPage('page-quiet', 'audio-quiet')">
                 <div class="card-icon">🤫</div>
                 <div class="card-title">The Quiet One</div>
             </div>
@@ -326,26 +322,53 @@
     </div>
 
     <script>
-        function showPage(pageId) {
+        function showPage(pageId, audioId) {
+            // Hide Home
             document.getElementById('home-page').style.display = 'none';
+            
+            // Show selected page
             const page = document.getElementById(pageId);
             page.style.display = 'flex';
             
-            // Re-trigger animation
+            // Re-trigger visual animation
             const quoteBox = page.querySelector('.quote-box');
             quoteBox.style.animation = 'none';
             quoteBox.offsetHeight; 
             quoteBox.style.animation = 'slideUp 0.8s ease';
+
+            // Stop any other playing audio first
+            stopAllAudio();
+
+            // Play the specific audio for this page
+            const audio = document.getElementById(audioId);
+            if (audio) {
+                audio.currentTime = 0; // Start from beginning
+                audio.play().catch(e => console.log("Audio play failed (user interaction needed):", e));
+            }
         }
 
         function showHome() {
+            // Hide all pages
             const pages = document.querySelectorAll('.content-page');
             pages.forEach(page => page.style.display = 'none');
+            
+            // Show home
             document.getElementById('home-page').style.display = 'flex';
+
+            // Stop music
+            stopAllAudio();
+        }
+
+        function stopAllAudio() {
+            const sounds = document.querySelectorAll('audio');
+            sounds.forEach(sound => {
+                sound.pause();
+                sound.currentTime = 0;
+            });
         }
     </script>
 </body>
 </html>
-
 </html>
+
 
